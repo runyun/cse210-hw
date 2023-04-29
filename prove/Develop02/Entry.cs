@@ -22,7 +22,7 @@ public class Entry
         string prompt = parts[1];
         string content = parts[2];
 
-        Entry entry = new Entry().CreateEntry(date, prompt,content);
+        Entry entry = new Entry().CreateEntry(date, prompt, content);
 
         return entry;
     }
