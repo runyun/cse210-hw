@@ -10,7 +10,7 @@ public class Basket : DataBaseObject
 
     public override void Create()
     {
-        Console.WriteLine("What is the size of the Basket? ");
+        Console.WriteLine("What is the size of the Basket? (Should be a string)");
         string size = Console.ReadLine();
 
         Basket newBasket = new Basket(size);

@@ -40,7 +40,7 @@ public abstract class DataBaseObject
 
             if(objectList.Count != 0)
             {
-                menuProducer.Show(ReadDescription(objectList), "The list");
+                menuProducer.Show(ReadDescription(objectList), "The list", false);
             }
             else
             {
@@ -51,9 +51,8 @@ public abstract class DataBaseObject
         {
             List<DataBaseObject> objectList = Read();
 
-            menuProducer.Show(ReadDescription(objectList), "The list");
-
-            Console.WriteLine("Which one you want to delete? ");
+            string question = "Which one you want to delete";
+            menuProducer.Show(ReadDescription(objectList), "The list", question: question);
 
             int deleteIndex = int.Parse(Console.ReadLine()) - 1;
 

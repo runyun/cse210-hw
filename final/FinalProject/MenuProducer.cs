@@ -1,19 +1,33 @@
 public class MenuProducer
 {
-    public void Show(List<string> optionList, string title = null)
+    public void Show(List<string> optionList, string title = null, bool needInput = true, string question = null)
     {
         if(title == null)
         {
-            title = "Selct a option";
+            title = "List";
         }
-
         Console.WriteLine();
-        Console.WriteLine(string.Format("{0}", title));
+        Console.WriteLine(title);
 
         for (int i = 0; i < optionList.Count(); i++)
         {
            Console.WriteLine(string.Format("{0}. {1}", i + 1, optionList[i]));
         }
+
+        if(needInput)
+        {
+            ShowHint(question);
+        }
+    }
+
+    private void ShowHint(string question)
+    {
+        if(question == null)
+        {
+            question = "Select an option: ";
+        }
+
+        Console.Write(string.Format("{0}: ", question));
     }
 
     public void ShowMainMenu()
@@ -21,7 +35,6 @@ public class MenuProducer
         List<string> mainOptions = new List<string>()
         {
             "Order",
-            "Storage",
             "Data Setting",
             "Quit"
         };
@@ -40,7 +53,7 @@ public class MenuProducer
             "Delete",
         };
 
-        string title = "Select an action";
+        string title = "Action List";
 
         Show(menuOptions, title);
     }
@@ -56,7 +69,7 @@ public class MenuProducer
             "Basket",
         };
 
-        string title = "Select an object";
+        string title = "Object list";
 
         Show(objectList, title);
     }
@@ -70,31 +83,9 @@ public class MenuProducer
             "List"
         };
 
-        Show(optionList);
+        string title = "Action List";
+
+        Show(optionList, title);
     }
 
-    public void ShowStorageOption()
-    {
-        List<string> storageOption = new List<string>()
-        {
-            "Summary",
-            "Component",
-            "Product",
-        };
-
-        Show(storageOption);
-    }
-
-    public void ShowStorageObjectOption()
-    {
-        List<string> option = new List<string>()
-        {
-            "List - At storage",
-            "List - At vendor",
-            "Add",
-            "Remove"
-        };
-
-        Show(option);
-    }
 }

@@ -20,13 +20,9 @@ class Program
             }
             else if(choice == 2)
             {
-                Storage(); 
-            }
-            else if(choice == 3)
-            {
                 DataSetting();
             }
-            else if(choice == 4)
+            else if(choice == 3)
             {
                 Console.WriteLine();
                 Console.WriteLine("Good bye.");
@@ -34,32 +30,6 @@ class Program
         }
     }
     
-    private static void Storage()
-    {
-        menuProducer.ShowStorageOption();
-        int option = int.Parse(Console.ReadLine());
-
-        StorageManager storageManager = new StorageManager();
-
-        if(option == 1)
-        {
-            storageManager.ShowSummary();
-        }
-        else if(option == 2)
-        {
-            menuProducer.ShowStorageObjectOption();
-            int storageObjectOption = int.Parse(Console.ReadLine());
-
-            storageManager.ComponentRelate();
-        }
-        else if(option == 3)
-        {
-            menuProducer.ShowStorageObjectOption();
-            int storageObjectOption = int.Parse(Console.ReadLine());
-
-            storageManager.ProductRelate();
-        }
-    }
     private static void Order()
     {
         menuProducer.ShowOrderOption();
